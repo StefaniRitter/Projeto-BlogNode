@@ -1,0 +1,1 @@
+Aplicação web para um blog usando Node.js com express para criação de servidor web, handlebars para geração de HTML dinâmico, Nodemon para reinicialização automática do servidor e mongoose para interação com o banco de dados MongoDB.
