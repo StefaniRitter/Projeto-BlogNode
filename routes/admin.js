@@ -17,9 +17,8 @@ router.get("/categorias/add", (req, res) => {
     res.render("admin/addcategorias")
 })
 
-
-
-
-
+router.post("/categorias/nova", (req, res) => {
+    res.send("Deu certo: " + req.body.nome)
+})
 
 export default router

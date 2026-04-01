@@ -3,8 +3,7 @@ import express from 'express'
 const app = express()
 import handlebars from 'express-handlebars'
 import admin from "./routes/admin.js"
-
-// import mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 // Configurações
 app.use(express.urlencoded({extended: true}))
@@ -14,8 +13,14 @@ app.use(express.json())
 app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
-// Mongoose
-    // Configurar depois
+// Mongoos
+   mongoose.Promise = global.Promise
+
+   mongoose.connect("mongodb://localhost/blogapp").then(() => {
+    console.log("CONECTOU AO BANCO!")
+   }).catch((err) => {
+    console.log("Erro ao conectar com o banco! " + err)
+   })
 
 // Public
 app.use(express.static("public"))
